@@ -7,6 +7,7 @@ interface Props {
   color?: string;
   black?: boolean;
   doubleSize?: boolean;
+  onPress: () => void;
 }
 
 export const CustomButton = ({
@@ -14,9 +15,12 @@ export const CustomButton = ({
   label,
   color = colors.darkgray,
   black = false,
+onPress
+
 }: Props) => {
   return (
     <Pressable
+        onPress={()=> onPress()}
       style={({pressed}) => ({
         ...styles.button,
         backgroundColor: color,
