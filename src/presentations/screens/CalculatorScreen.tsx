@@ -5,21 +5,24 @@ import { CalculadoraHook } from '../hooks/CalculadoraHook';
 
 export const CalculatorScreen = () => {
 
-  const {number, buildNumber } = CalculadoraHook()
+  const {number, buildNumber, deleteNumber, deleteLastNumber } = CalculadoraHook()
 
   return (
     <View style={styles.calculatorContainer}>
       <View  
       
       style={{paddingHorizontal: 30, paddingBottom: 20}}>
-        <Text style={styles.mainResult}>{number}</Text>
+        <Text
+        adjustsFontSizeToFit
+        numberOfLines={1}
+        style={styles.mainResult}>{number}</Text>
         <Text style={styles.subResult}>15</Text>
       </View>
 
       <View style={{flexDirection: 'row'}}>
-        <CustomButton onPress={() => console.log("hola")} black label="C" color={colors.lighGray} />
+        <CustomButton onPress={() => deleteNumber() } black label="C" color={colors.lighGray} />
         <CustomButton onPress={() => console.log("hola")} black label="+/-" color={colors.lighGray} />
-        <CustomButton onPress={() => console.log("hola")} black label="del" color={colors.lighGray} />
+        <CustomButton onPress={() => deleteLastNumber()} black label="del" color={colors.lighGray} />
         <CustomButton onPress={() => console.log("hola")} color="orange" label="/" />
       </View>
       <View style={{flexDirection: 'row'}}>
